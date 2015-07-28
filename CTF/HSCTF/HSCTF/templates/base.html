@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+{% if isIE == 'True' %}
+<div><p style="float: left;"><img src="/images/IE.png" alt="Really IE?" width="300" height="200"></p>
+<br />
+<br />
+<h1>Internet Explorer, you cannot be serious?</h1>
+<p>We don't use Internet Explorer and neither should you!</p>
+</div>
+{% else %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="NULLify HSCTF">
+    <meta name="description" content="NULLify HSCTF">
+    <meta name="author" content="Ryan Grandgenett">
+	
+	{% block css %}{% endblock %}
+   
+   <title>NULLify HSCTF</title>
+</head>
+<body class="metro">
+    <div class="container">
+        <header class="margin20 nrm nlm">
+            <div class="clearfix">
+                <a class="place-center" href="#" title="">
+                    <h1 style="color:green;padding-bottom:.2em">NULLify HSCTF</h1> 
+                </a>
+            </div>
+			 <nav class="navigation-bar dark">
+                <nav id="navbar" class="navigation-bar-content">
+                    <span id="dividerWidth" class="element-divider"></span>
+                    <a href="/recon/" class="element">Recon</a>
+                    <span class="element-divider"></span>
+                    <a href="/trivia/" class="element">Trivia</a>
+					<span class="element-divider"></span>
+                    <a style="width:8.5%" href="/script/" class="element">Scripting</a>
+                    <span class="element-divider"></span>
+                    <a href="/web/" class="element">Web</a>
+                    <span class="element-divider"></span>
+                    <a href="/binary/" class="element">Binary</a>
+                    <span class="element-divider"></span>
+                    <a href="/crypto/" class="element">Crypto</a>
+					<span class="element-divider"></span>
+                    <a style="width:13%" href="/forensics/" class="element">Stego/Forensics</a>
+                    <span class="element-divider"></span>
+                    <a style="width:10%" href="/network/" class="element">Networking</a>
+					<span class="element-divider"></span>
+                    <a style="width:9%" href="/grab_bag/" class="element">Grab Bag</a>
+                    <span class="element-divider"></span>
+                    <a href="/flash/" class="element">Flash</a>
+                    <span class="element-divider"></span>
+                    <a style="width:11.3%" href="/scoreboard/" class="element bg-darkTeal">Scoreboard</a>
+					<span class="element-divider"></span>
+					<div style="width:5%;padding-right:20px" id="cogbox" class="element bg-darkTeal">
+                            <a class="dropdown-toggle" href="#">
+                                <span class="icon-cog"></span>
+                            </a>
+                            <ul class="dropdown-menu" data-role="dropdown">
+								<li><a href="http://irc.nullify-ctf.com" target="_blank">Help</a></li>
+                                <li><a href="/logout/">Logout</a></li>
+                            </ul>
+                    </div>
+					
+
+                </nav>
+            </nav>
+
+        </header>
+	{% block content %}{% endblock %}		
+	</div>
+	
+	
+
+
+	<div id="popup" style="display: none;">
+		<span class="button b-close"><span style="color:black">X</span></span>
+		<span id="container"></span>
+	</div>
+
+{% block scripts %}{% endblock %}
+</body>
+{% endif %}
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+#navbar {
+    display: table;
+    width: 100%;
+}
+
+#navbar a.element {
+    display: table-cell;
+	text-align:center;
+	width: 7%;
+}

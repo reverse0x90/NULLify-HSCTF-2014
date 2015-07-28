@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="Nullify CTF">
+    <meta name="description" content="Nullify CTF">
+    <meta name="author" content="Ryan Grandgenett">
+
+
+    <title>{{fullname}}</title>
+	
+	<!-- Local JavaScript -->
+	<script src="/js/jquery/jquery.min.js"></script>
+		
+	<script type="text/javascript">
+	$('#result').html('');
+
+	$('#flagSubmit').submit(function() { // catch the form's submit event
+	var withToken = ($(this).serialize());
+    $.ajax({ // create an AJAX call...
+        data: withToken, // get the form data
+        type: $(this).attr('method'), // GET or POST
+        url: $(this).attr('action'), // the file to call
+        success: function(response) { // on success..
+            $('#result').html(response); // update the DIV
+        }
+    }
+	);
+	this.reset();
+    return false; // cancel original event to prevent form submitting
+});
+
+</script>
+	
+</head>
+<body>
+	<h1 style="padding-bottom:.2em">{{fullname}}</h1>  
+		<table style="width:100%">
+			<tr>
+				<td>
+					<p style="font-size:18px">{{description | safe}}</p>
+				</td>
+			</tr>
+			<tr>
+			<td style="padding-bottom: 1em; padding-top:1em">
+				<form id=flagSubmit name="input" action="/submitFlag/" method="POST">
+					<p>Flag: <input type="text" size="50" name="flag"> <input type="submit" value="Submit"><p>
+					{% csrf_token %}
+					
+				</form>
+				<div id=result></div>
+			</td>
+			</tr>
+			<tr>
+			<td>
+			<p>{{num_solved}} of {{total_teams}} teams have solved this challenge.</p>
+			</td>
+			</tr>
+			
+		</table>
+</body>
+
